@@ -16,5 +16,7 @@ clock = pygame.time.Clock()
 
 #enemy
 max_enemy_group = 3
-enemy_duration = 500
+enemy_duration = 800
 
+#meteor
+meteor_scale = uniform(0.5, 1.5)

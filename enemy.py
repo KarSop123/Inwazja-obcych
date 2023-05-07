@@ -55,8 +55,18 @@ class EnemyLaser(pygame.sprite.Sprite):
         self.pos = pygame.math.Vector2(self.rect.center)
         self.speed = 400
 
+        # rotation
+        self.rotation = 0
+        self.rotation_speed = 300
+
     def movement(self, dt):
         self.rect.y += self.speed * dt
+
+    def rotate(self, dt):
+        self.rotation -= self.rotation_speed * dt
+        self.image = pygame.transform.rotate(self.scaled_surf, self.rotation)
+        self.rect = self.image.get_rect(center=self.rect.center)
+        self.mask = pygame.mask.from_surface(self.image)
 
     def collision(self):
         if pygame.sprite.spritecollide(self, player_group, True, pygame.sprite.collide_mask):
@@ -65,4 +75,5 @@ class EnemyLaser(pygame.sprite.Sprite):
 
     def update(self, dt):
         self.movement(dt)
+        self.rotate(dt)
 

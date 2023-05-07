@@ -12,7 +12,7 @@ class Player(pygame.sprite.Sprite):
         self.mask = pygame.mask.from_surface(self.image)
 
         #speed
-        self.speed = 400
+        self.speed = 600
 
         #health
         self.hearts = 3

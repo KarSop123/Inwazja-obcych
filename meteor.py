@@ -4,7 +4,7 @@ class Meteor(pygame.sprite.Sprite):
     def __init__(self,pos, group):
         super().__init__(group)
         meteor_surf = pygame.image.load('graphics/meteor.png').convert_alpha()
-        meteor_size = pygame.math.Vector2(meteor_surf.get_size()) * uniform(0.5, 1.5)
+        meteor_size = pygame.math.Vector2(meteor_surf.get_size()) * meteor_scale
         self.scaled_surf = pygame.transform.scale(meteor_surf,(round(meteor_size.x),round(meteor_size.y)))
         self.image = self.scaled_surf
         self.rect = self.image.get_rect(midbottom = pos)
