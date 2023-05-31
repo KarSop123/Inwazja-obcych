@@ -1,3 +1,5 @@
+import pygame.mouse
+
 from settings import *
 
 
@@ -34,6 +36,10 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_s]:
             self.rect.y += self.speed * dt
 
+    def movement2(self):
+        pos = pygame.mouse.get_pos()
+        self.rect.center = pos
+
     def collision(self):
         if pygame.sprite.spritecollide(self, meteor_group, True, pygame.sprite.collide_mask) or pygame.sprite.spritecollide(self, enemy_laser_group, True, pygame.sprite.collide_mask):
             self.hearts -= 1
@@ -58,6 +64,7 @@ class Player(pygame.sprite.Sprite):
         self.laser_timer()
         self.laser_shoot()
         self.movement(dt)
+        # self.movement2()
         self.collision()
 
 class Laser(pygame.sprite.Sprite):

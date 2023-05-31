@@ -44,7 +44,7 @@ class Enemy(pygame.sprite.Sprite):
 class EnemyLaser(pygame.sprite.Sprite):
     def __init__(self,pos, group):
         super().__init__(group)
-        laser_surf = pygame.image.load('graphics/adolf.png')
+        laser_surf = pygame.image.load('graphics/pocisk.png')
         laser_size = pygame.math.Vector2(laser_surf.get_size()) * 2.5
         self.scaled_surf = pygame.transform.scale(laser_surf,(round(laser_size.x),round(laser_size.y)))
         self.image = self.scaled_surf
@@ -75,5 +75,5 @@ class EnemyLaser(pygame.sprite.Sprite):
 
     def update(self, dt):
         self.movement(dt)
-        self.rotate(dt)
+        #self.rotate(dt)
 
